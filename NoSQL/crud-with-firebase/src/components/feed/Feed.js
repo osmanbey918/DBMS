@@ -1,17 +1,22 @@
-import React, { useState } from "react";
+// src/components/Feed.js
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { increment } from "../../store/slices/feedslice";
+import { increment, addFeedData, fetchFeedData } from "../../store/slices/feedSlice";
 
 const Feed = () => {
     const dispatch = useDispatch();
     const c = useSelector((state) => state.feed.value);
+    const { feeds, loading, error } = useSelector((state) => state.feed);
 
     const [formData, setFormData] = useState({
         title: '',
         description: ''
     });
 
-    const [submittedData, setSubmittedData] = useState( []);
+    useEffect(() => {
+        // Fetch data from Firestore when the component mounts
+        dispatch(fetchFeedData());
+    }, [dispatch]);
 
     const clickhandle = () => {
         dispatch(increment());
@@ -27,8 +32,8 @@ const Feed = () => {
 
     // Handle form submission
     const submit = (event) => {
-        event.preventDefault(); // Prevent page reload
-        setSubmittedData([...submittedData, formData]); // Add formData to submittedData array
+        event.preventDefault();
+        dispatch(addFeedData(formData)); // Save data to Firestore and Redux store
         setFormData({ title: '', description: '' }); // Reset form fields
     };
 
@@ -50,16 +55,20 @@ const Feed = () => {
                         value={formData.description}
                         onChange={handleChange}
                     />
-                    <button type="submit">Submit</button>
+                    <button type="submit">
+                        Submit
+                    </button>
                 </form>
 
-                {/* Display submitted data */}
-                {submittedData.map((data, index) => (
-                    <div key={index}>
-                        <p>{data.title}</p>
-                        <p>{data.description}</p>
+                {/* Display data from Redux store */}
+                {feeds.map((feed) => (
+                    <div key={feed.id}>
+                        <p>{feed.title}</p>
+                        <p>{feed.description}</p>
                     </div>
                 ))}
+
+                {error && <p>Error: {error}</p>}
 
                 <p>{c}</p>
                 <button onClick={clickhandle}>+</button>

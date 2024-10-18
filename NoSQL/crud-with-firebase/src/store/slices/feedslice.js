@@ -1,6 +1,6 @@
 // src/store/slices/feedSlice.js
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { db } from '../../config/firebaseConfig'; // Make sure to set up Firebase config
+import { db } from '../../config/firebaseConfig'; 
 import { collection, addDoc, getDocs } from 'firebase/firestore';
 
 // Thunk to add data to Firestore

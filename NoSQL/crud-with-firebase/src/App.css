@@ -69,3 +69,96 @@
 .form-container button:hover {
     background-color: #0056b3;
 }
+/* src/components/FeedItem.css */
+
+
+
+
+
+
+
+
+
+/* src/components/FeedItem.css */
+/* src/components/FeedItem.css */
+
+.post {
+    border: 1px solid #ddd;               /* Light border around the post */
+    border-radius: 8px;                   /* Rounded corners */
+    padding: 16px;                        /* Padding inside the post */
+    margin: 16px 0;                       /* Vertical margin between posts */
+    background-color: #ffffff;            /* White background for the post */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: box-shadow 0.3s;          /* Smooth shadow transition on hover */
+    width: 300px;                       /* Full width on mobile */
+}
+
+.post-container{
+    display: flex;
+    justify-content: center;
+}
+.post-description {
+    font-size: 1em;                        /* Normal font size for description */
+    color: #555;                           /* Medium gray color for description text */
+    margin: 8px 0;                         /* Margin above and below description */
+}
+
+.post-image {
+    width: 300px;
+    height: 300px;
+                               /* Full width image */
+    border-radius: 4px;                   /* Slightly rounded corners for images */
+    margin: 10px 0;                        /* Margin around the image */
+    object-fit: contain;                     /* Maintain aspect ratio while covering the area */
+}
+
+.post-footer {
+    display: flex;                         /* Flexbox for footer layout */
+    justify-content: space-between;       /* Space between date and button */
+    align-items: center;                  /* Center items vertically */
+    margin-top: 10px;                     /* Margin above footer */
+}
+
+.post-date {
+    font-size: 0.8em;                     /* Smaller font size for date */
+    color: #888;                          /* Light gray color for date text */
+}
+
+.like-button {
+    background-color: #007bff;            /* Primary blue color for button */
+    color: white;                          /* White text color */
+    border: none;                          /* Remove border */
+    border-radius: 4px;                   /* Rounded corners for button */
+    padding: 5px 8px;                     /* Padding inside the button */
+    cursor: pointer;                       /* Pointer cursor on hover */
+    transition: background-color 0.3s;    /* Smooth transition for hover effect */
+    font-size: 0.9em;                     /* Font size for the button text */
+}
+
+.like-button:hover {
+    background-color: #0056b3;            /* Darker blue on hover */
+}
+
+/* Media Queries for Additional Responsiveness */
+@media (max-width: 480px) {
+    .post {
+        padding: 12px;                    /* Reduced padding on very small screens */
+    }
+
+    .post-title {
+        font-size: 1.3em;                 /* Slightly smaller title on small screens */
+    }
+
+    .post-description {
+        font-size: 0.9em;                 /* Slightly smaller description on small screens */
+    }
+
+    .post-date {
+        font-size: 0.7em;                 /* Smaller font size for date on small screens */
+    }
+
+    .like-button {
+        padding: 4px 6px;                 /* Smaller padding for button on small screens */
+        font-size: 0.8em;                 /* Smaller button text on small screens */
+    }
+}

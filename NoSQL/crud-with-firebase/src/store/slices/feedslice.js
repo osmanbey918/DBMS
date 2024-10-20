@@ -1,7 +1,10 @@
 // src/store/slices/feedSlice.js
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { db } from '../../config/firebaseConfig'; 
+import { db } from '../../config/firebaseConfig';
+import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { collection, addDoc, getDocs } from 'firebase/firestore';
+
+const storage = getStorage();
 
 // Thunk to add data to Firestore
 export const addFeedData = createAsyncThunk(
@@ -32,11 +35,27 @@ export const fetchFeedData = createAsyncThunk(
   }
 );
 
+// Thunk to upload image to Firebase Storage
+export const uploadImage = createAsyncThunk(
+  'feed/uploadImage',
+  async (file, { rejectWithValue }) => {
+    const storageRef = ref(storage, `images/${file.name}`);
+    try {
+      const snapshot = await uploadBytes(storageRef, file);
+      const url = await getDownloadURL(snapshot.ref);
+      return url;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
 const feedSlice = createSlice({
   name: 'feed',
   initialState: {
     value: 0,
     feeds: [],
+    imageUrl: null,
     loading: false,
     error: null,
   },
@@ -47,6 +66,7 @@ const feedSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
+      // Handling addFeedData
       .addCase(addFeedData.pending, (state) => {
         state.loading = true;
       })
@@ -58,6 +78,7 @@ const feedSlice = createSlice({
         state.loading = false;
         state.error = action.payload;
       })
+      // Handling fetchFeedData
       .addCase(fetchFeedData.pending, (state) => {
         state.loading = true;
       })
@@ -66,6 +87,19 @@ const feedSlice = createSlice({
         state.feeds = action.payload;
       })
       .addCase(fetchFeedData.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      })
+      // Handling uploadImage
+      .addCase(uploadImage.pending, (state) => {
+        state.loading = true;
+        state.imageUrl = null;
+      })
+      .addCase(uploadImage.fulfilled, (state, action) => {
+        state.loading = false;
+        state.imageUrl = action.payload;
+      })
+      .addCase(uploadImage.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
       });

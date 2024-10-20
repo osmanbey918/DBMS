@@ -1,7 +1,7 @@
 // src/components/Feed.js
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { increment, fetchFeedData } from "../../store/slices/feedSlice";
+import {  fetchFeedData } from "../../store/slices/feedSlice";
 import FeedForm from "./FeedForm";
 import FeedList from "./FeedList";
 
@@ -25,14 +25,11 @@ const Feed = () => {
             <button onClick={toggleBox}>
                 {isBoxVisible ? 'Done' : 'Create Post'}
             </button>
-
             {isBoxVisible && <FeedForm onClose={toggleBox} />}
 
             <FeedList feeds={feeds} />
 
             {error && <p>Error: {error}</p>}
-            <p>{c}</p>
-            <button onClick={() => dispatch(increment())}>+</button>
         </div>
     );
 };

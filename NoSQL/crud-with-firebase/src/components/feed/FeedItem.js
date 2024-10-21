@@ -15,7 +15,10 @@ const FeedItem = ({ feed }) => {
                     />
                 )}
                 <div className="post-footer">
-                    <span className="post-date">{new Date().toLocaleDateString()}</span>
+                <span className="post-date">
+  {new Date().toLocaleDateString()} {new Date().toLocaleTimeString()}
+</span>
+
                     <button className="like-button">👍 Like</button>
                 </div>
             </div>

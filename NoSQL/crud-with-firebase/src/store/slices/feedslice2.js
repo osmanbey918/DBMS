@@ -15,6 +15,7 @@ export const fetch = createAsyncThunk(
     "feed/fetch",
     async(_, {rejectwithvalue}) =>{
         const fetcgdata = await getDoc(collection(db, feed))
+        return
     }
 
 )

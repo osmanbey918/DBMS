@@ -2,7 +2,7 @@
 import { createUserWithEmailAndPassword,signInWithEmailAndPassword,signOut } from "firebase/auth";
 
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import { auth, db } from "../../config/firebase";
+import { auth, db } from "../../config/firebaseConfig";
 import { addDoc ,doc, collection, getDoc, setDoc} from "firebase/firestore";
 
 

@@ -1,8 +1,8 @@
 import React from 'react'
-import FeedListing from '../../components/feedListing/FeedListing';
-import CreatePost from '../../components/createPost/CreatePost';
+
 import { useDispatch } from 'react-redux';
 import { logout } from '../../store/slices/authSlice';
+import Feed from '../../components/feed/Feed';
 
 export default function Home() {
   const dispatch = useDispatch()
@@ -13,8 +13,7 @@ dispatch(logout())
     <div>
         <h1>List of posts</h1> 
         <button onClick={handleLogout}>logout</button>
-         <CreatePost/> 
-        <FeedListing/>
+         <Feed/> 
     </div>
   )
 }

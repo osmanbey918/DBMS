@@ -1,7 +1,8 @@
-// src/firebaseConfig.js
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
-import { getStorage, ref, uploadBytes, getDownloadURL } from "firebase/storage";
+import { getStorage } from "firebase/storage";
+import { getAuth } from "firebase/auth";
+
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyDIYD3cwD11JQuUz7Dqo6nuGfChvETjyVY",
@@ -16,10 +17,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-// Initialize Firestore
+// Initialize services after Firebase app
 export const db = getFirestore(app);
-const storage = getStorage(app);
-
-// (Optional) Initialize Analytics if needed for tracking
-// import { getAnalytics } from "firebase/analytics";
-// const analytics = getAnalytics(app);
+export const storage = getStorage(app);
+export const auth = getAuth(app);  // Moved after app initialization

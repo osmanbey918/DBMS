@@ -5,5 +5,5 @@ export default function PrivateRoute({children}) {
     
     const user = useSelector((store)=>store.authSlice.user)
 
-    return user ? children : <Navigate to="/login" />;
+    return user ? children : <Navigate to="/signup" />;
 }

@@ -413,3 +413,8 @@ textarea{
   border-radius: 4px;
   box-shadow: 1px 2px 10px grey;
 }
+.l-btn{
+  outline: none;
+  border: none;
+  background: transparent;
+}

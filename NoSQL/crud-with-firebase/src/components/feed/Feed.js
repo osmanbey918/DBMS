@@ -7,8 +7,7 @@ import FeedList from "./FeedList";
 
 const Feed = () => {
     const dispatch = useDispatch();
-    const c = useSelector((state) => state.feed);
-    const { feeds, loading, error } = useSelector((state) => state.feed);
+    const { feeds, loading, error } = useSelector((state) => state.feed); // Combined useSelector to avoid redundancy
 
     const [isBoxVisible, setIsBoxVisible] = useState(false);
 
@@ -18,7 +17,7 @@ const Feed = () => {
     }, [dispatch]);
 
     const toggleBox = () => {
-        setIsBoxVisible(!isBoxVisible);no
+        setIsBoxVisible(!isBoxVisible); // Removed 'no' here
     };
 
     return (
@@ -29,9 +28,7 @@ const Feed = () => {
                 </button>
             </div>
             {isBoxVisible && <FeedForm onClose={toggleBox} />}
-
             <FeedList feeds={feeds} />
-
             {error && <p>Error: {error}</p>}
         </div>
     );

@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { login } from '../../store/slices/authSlice'
+import { useNavigate } from 'react-router-dom'
 
 export default function Login() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
   const dispatch = useDispatch()
-
+  const navigate = useNavigate();
   const handleLogin = () => {
     let user = {
       email,
@@ -19,7 +20,7 @@ export default function Login() {
   return (
     <div className="login-container">
       <div className="login-box">
-        <h1>Login</h1>
+        <h1>Login<button onClick={()=>navigate('/signup')} className='l-btn'><h1>/SignUp</h1></button></h1>
         <input
           type="email"
           placeholder="Enter email"

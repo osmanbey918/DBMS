@@ -55,8 +55,9 @@ const FeedForm = ({ onClose }) => {
                     onChange={handleChange}
                 /> */}
                 <label>Description</label>
-                <input
-                    type="text"
+                <textarea
+                    cols={12}
+                    rows={12}
                     name="description"
                     value={formData.description}
                     onChange={handleChange}

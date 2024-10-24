@@ -35,6 +35,17 @@ export const fetchFeedData = createAsyncThunk(
   }
 );
 
+export const fetchUserName = createAsyncThunk(
+  'user/fetchUserNAme',
+  async (_, { rejectWithValue }) => {
+    const userName = await getDocs(collection(db, 'users'));
+    return userName.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
+
+  }
+)
 // Thunk to upload image to Firebase Storage
 export const uploadImage = createAsyncThunk(
   'feed/uploadImage',
@@ -59,11 +70,7 @@ const feedSlice = createSlice({
     loading: false,
     error: null,
   },
-  reducers: {
-    increment: (state) => {
-      state.value += 1;
-    },
-  },
+  reducers: {},
   extraReducers: (builder) => {
     builder
       // Handling addFeedData
@@ -102,6 +109,9 @@ const feedSlice = createSlice({
       .addCase(uploadImage.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
+      })
+      .addCase(fetchUserName.fulfilled, (state, action) => {
+        state.users = action.payload;
       });
   },
 });

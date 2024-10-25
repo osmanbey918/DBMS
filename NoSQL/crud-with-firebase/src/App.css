@@ -112,8 +112,12 @@
   font-size: 1em;
   /* Normal font size for description */
   color: #555;
+  /* width: 340px; */
+  font-family: sans-serif;
   /* Medium gray color for description text */
   margin: 8px 0;
+  text-align: left;
+  text-wrap: wrap;
   /* Margin above and below description */
 }
 

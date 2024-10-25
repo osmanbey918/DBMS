@@ -6,7 +6,8 @@ const FeedItem = ({ feed }) => {
         <div className="post-container">
             <div className="post">
                 <h2 className="post-title">{feed.title}</h2>
-                <p className="post-description">{feed.description}</p>
+                {/* <div className="post-description">{feed.description}</div> */}
+                <span className="post-description"><pre className="post-description" rows={15} cols={15} disabled>{feed.description}</pre></span>
                 {feed.img && (
                     <img
                         src={feed.img}

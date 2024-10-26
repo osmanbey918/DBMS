@@ -1,13 +1,17 @@
 // src/components/FeedItem.js
 import React from "react";
+import DeleteBtn from "../deletebtn/DeleteBtn";
 
 const FeedItem = ({ feed }) => {
     return (
         <div className="post-container">
             <div className="post">
                 <h2 className="post-title">{feed.title}</h2>
-                {/* <div className="post-description">{feed.description}</div> */}
-                <span className="post-description"><pre className="post-description" rows={15} cols={15} disabled>{feed.description}</pre></span>
+                <span className="post-description">
+                    <pre className="post-description" rows={15} cols={15} disabled>
+                        {feed.description}
+                    </pre>
+                </span>
                 {feed.img && (
                     <img
                         src={feed.img}
@@ -21,6 +25,8 @@ const FeedItem = ({ feed }) => {
                     </span>
 
                     <button className="like-button">👍 Like</button>
+                    {/* Pass collectionName and docId to DeleteBtn */}
+                    <DeleteBtn collectionName="feeds" docId={feed.id} />
                 </div>
             </div>
         </div>

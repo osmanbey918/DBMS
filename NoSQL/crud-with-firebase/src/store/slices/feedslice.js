@@ -2,11 +2,25 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { db } from '../../config/firebaseConfig';
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { collection, addDoc, getDocs } from 'firebase/firestore';
+import { collection, addDoc, getDocs,getFirestore, doc, updateDoc, deleteDoc} from 'firebase/firestore';
 
 const storage = getStorage();
 
 // Thunk to add data to Firestore
+
+export const deleteFeedData = createAsyncThunk(
+  'feed/deleteFeedData',
+  async (id, { rejectWithValue }) => {
+    try {
+      const docRef = doc(db, 'feeds', id);
+      await deleteDoc(docRef);
+      return id;  // Return the deleted document's ID
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
 export const addFeedData = createAsyncThunk(
   'feed/addFeedData',
   async (data, { rejectWithValue }) => {
@@ -110,11 +124,24 @@ const feedSlice = createSlice({
         state.loading = false;
         state.error = action.payload;
       })
+      // Handling deleteFeedData
+      .addCase(deleteFeedData.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(deleteFeedData.fulfilled, (state, action) => {
+        state.loading = false;
+        state.feeds = state.feeds.filter(feed => feed.id !== action.payload);
+      })
+      .addCase(deleteFeedData.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.payload;
+      })
       .addCase(fetchUserName.fulfilled, (state, action) => {
         state.users = action.payload;
       });
   },
 });
+
 
 export const { increment } = feedSlice.actions;
 export default feedSlice.reducer;

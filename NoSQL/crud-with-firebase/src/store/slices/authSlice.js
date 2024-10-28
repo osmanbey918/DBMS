@@ -4,6 +4,7 @@ import { createUserWithEmailAndPassword,signInWithEmailAndPassword,signOut } fro
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { auth, db } from "../../config/firebaseConfig";
 import { addDoc ,doc, collection, getDoc, setDoc} from "firebase/firestore";
+import Loading from "../../components/loading/Loading";
 
 
 export const getCurrentUser = createAsyncThunk(
@@ -49,6 +50,7 @@ export const login = createAsyncThunk(
          const dbUser = docSnap?.data()
          console.log("dbUser",dbUser);
          
+         
          return dbUser
 
 
@@ -87,7 +89,8 @@ export const signup = createAsyncThunk(
 )
 
 const initialState = {
-    user: null
+    user: null,
+    loading:false
 }
 
 const authSlice = createSlice({
@@ -98,27 +101,50 @@ const authSlice = createSlice({
             state.user = action.payload
         }
     },
-extraReducers:(builder)=>{
-    builder.addCase(signup.fulfilled, (state,action)=>{
-        console.log("action", action.payload);
-        state.user = action.payload
-    })
-
-    builder.addCase(login.fulfilled, (state,action)=>{
-        console.log("action in login", action.payload);
-        state.user = action.payload
-    })
-
-    builder.addCase(logout.fulfilled, (state,action)=>{
-        console.log("action in login", action.payload);
-        state.user = null
-    })
-
-    builder.addCase(getCurrentUser.fulfilled, (state,action)=>{
-        console.log("action in login", action.payload);
-        state.user = action.payload
-    })
-}
+    extraReducers: (builder) => {
+        builder
+            .addCase(signup.pending, (state) => {
+                state.loading = true;
+            })
+            .addCase(signup.fulfilled, (state, action) => {
+                state.loading = false;
+                state.user = action.payload;
+            })
+            .addCase(signup.rejected, (state) => {
+                state.loading = false;
+            })
+            .addCase(login.pending, (state) => {
+                state.loading = true;
+            })
+            .addCase(login.fulfilled, (state, action) => {
+                state.loading = false;
+                state.user = action.payload;
+            })
+            .addCase(login.rejected, (state) => {
+                state.loading = false;
+            })
+            .addCase(logout.pending, (state) => {
+                state.loading = true;
+            })
+            .addCase(logout.fulfilled, (state) => {
+                state.loading = false;
+                state.user = null;
+            })
+            .addCase(logout.rejected, (state) => {
+                state.loading = false;
+            })
+            .addCase(getCurrentUser.pending, (state) => {
+                state.loading = true;
+            })
+            .addCase(getCurrentUser.fulfilled, (state, action) => {
+                state.loading = false;
+                state.user = action.payload;
+            })
+            .addCase(getCurrentUser.rejected, (state) => {
+                state.loading = false;
+            });
+    }
+    
 });
 
 export const { setUser } = authSlice.actions

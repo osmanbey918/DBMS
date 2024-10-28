@@ -6,10 +6,9 @@ import FeedForm from "./FeedForm";
 import FeedList from "./FeedList";
 
 const Feed = () => {
-    const dispatch = useDispatch();
     const { feeds, loading, error } = useSelector((state) => state.feed); // Combined useSelector to avoid redundancy
-
     const [isBoxVisible, setIsBoxVisible] = useState(false);
+    const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(fetchFeedData());
@@ -17,7 +16,7 @@ const Feed = () => {
     }, [dispatch]);
 
     const toggleBox = () => {
-        setIsBoxVisible(!isBoxVisible); // Removed 'no' here
+        setIsBoxVisible(!isBoxVisible); 
     };
 
     return (

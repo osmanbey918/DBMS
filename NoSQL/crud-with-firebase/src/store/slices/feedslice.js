@@ -1,12 +1,27 @@
-// src/store/slices/feedSlice.js
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { db } from '../../config/firebaseConfig';
 import { getStorage, ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { collection, addDoc, getDocs,getFirestore, doc, updateDoc, deleteDoc} from 'firebase/firestore';
+import { collection, addDoc, getDocs, doc, deleteDoc } from 'firebase/firestore';
 
 const storage = getStorage();
 
 // Thunk to add data to Firestore
+
+export const fetchFeedData = createAsyncThunk(
+  'feed/fetchFeedData',
+  async (_, { rejectWithValue }) => {
+    try {
+      const querySnapshot = await getDocs(collection(db, 'feeds'));
+      return querySnapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+  
+);
 
 export const deleteFeedData = createAsyncThunk(
   'feed/deleteFeedData',
@@ -14,7 +29,7 @@ export const deleteFeedData = createAsyncThunk(
     try {
       const docRef = doc(db, 'feeds', id);
       await deleteDoc(docRef);
-      return id;  // Return the deleted document's ID
+      return id;  
     } catch (error) {
       return rejectWithValue(error.message);
     }
@@ -33,22 +48,6 @@ export const addFeedData = createAsyncThunk(
   }
 );
 
-// Thunk to fetch data from Firestore
-export const fetchFeedData = createAsyncThunk(
-  'feed/fetchFeedData',
-  async (_, { rejectWithValue }) => {
-    try {
-      const querySnapshot = await getDocs(collection(db, 'feeds'));
-      return querySnapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data(),
-      }));
-    } catch (error) {
-      return rejectWithValue(error.message);
-    }
-  }
-);
-
 export const fetchUserName = createAsyncThunk(
   'user/fetchUserNAme',
   async (_, { rejectWithValue }) => {
@@ -60,7 +59,7 @@ export const fetchUserName = createAsyncThunk(
 
   }
 )
-// Thunk to upload image to Firebase Storage
+
 export const uploadImage = createAsyncThunk(
   'feed/uploadImage',
   async (file, { rejectWithValue }) => {

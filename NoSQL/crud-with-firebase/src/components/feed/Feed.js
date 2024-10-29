@@ -1,12 +1,15 @@
 // src/components/Feed.js
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchFeedData, fetchUserName } from "../../store/slices/feedSlice";
+import { fetchFeedData } from "../../store/slices/feedSlice";
 import FeedForm from "./FeedForm";
+import { fetchUserName } from "../../store/slices/userSlice";
 import FeedList from "./FeedList";
+import User from "./User";
 
 const Feed = () => {
-    const { feeds, loading, error } = useSelector((state) => state.feed); // Combined useSelector to avoid redundancy
+    const { feeds, loading, error} = useSelector((state) => state.feed); // Combined useSelector to avoid redundancy
+    const {users} = useSelector((state) => state.user); // Combined useSelector to avoid redundancy
     const [isBoxVisible, setIsBoxVisible] = useState(false);
     const dispatch = useDispatch();
 
@@ -28,6 +31,7 @@ const Feed = () => {
             </div>
             {isBoxVisible && <FeedForm onClose={toggleBox} />}
             <FeedList feeds={feeds} />
+            <User users={users}/>
             {error && <p>Error: {error}</p>}
         </div>
     );

@@ -2,11 +2,11 @@
 import React from "react";
 import DeleteBtn from "../deletebtn/DeleteBtn";
 
-const FeedItem = ({ feed }) => {
+const FeedItem = ({ feed },{user}) => {
     return (
         <div className="post-container">
             <div className="post">
-                <h2 className="post-title">{feed.title}</h2>
+                {/* <h2 className="post-title">{user.email}i am poster</h2> */}
                 <span className="post-description">
                     <pre className="post-description" rows={15} cols={15} disabled>
                         {feed.description}

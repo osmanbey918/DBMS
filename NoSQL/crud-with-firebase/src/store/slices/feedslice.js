@@ -20,36 +20,11 @@ export const fetchFeedData = createAsyncThunk(
       return rejectWithValue(error.message);
     }
   }
-  
-);
 
-export const deleteFeedData = createAsyncThunk(
-  'feed/deleteFeedData',
-  async (id, { rejectWithValue }) => {
-    try {
-      const docRef = doc(db, 'feeds', id);
-      await deleteDoc(docRef);
-      return id;  
-    } catch (error) {
-      return rejectWithValue(error.message);
-    }
-  }
-);
-
-export const addFeedData = createAsyncThunk(
-  'feed/addFeedData',
-  async (data, { rejectWithValue }) => {
-    try {
-      const docRef = await addDoc(collection(db, 'feeds'), data);
-      return { id: docRef.id, ...data };
-    } catch (error) {
-      return rejectWithValue(error.message);
-    }
-  }
 );
 
 export const fetchUserName = createAsyncThunk(
-  'user/fetchUserNAme',
+  'user/fetchUserName',
   async (_, { rejectWithValue }) => {
     const userName = await getDocs(collection(db, 'users'));
     return userName.docs.map((doc) => ({
@@ -59,6 +34,31 @@ export const fetchUserName = createAsyncThunk(
 
   }
 )
+export const deleteFeedData = createAsyncThunk(
+  'feed/deleteFeedData',
+  async (id) => {
+    try {
+      const docRef = doc(db, 'feeds', id);
+      await deleteDoc(docRef);
+      return id;
+    } catch (error) {
+      return error;
+    }
+  }
+);
+
+export const addFeedData = createAsyncThunk(
+  'feed/addFeedData',
+  async (data) => {
+    try {
+      const docRef = await addDoc(collection(db, 'feeds'), data);
+      return { id: docRef.id, ...data };
+    } catch (error) {
+      return error;
+    }
+  }
+);
+
 
 export const uploadImage = createAsyncThunk(
   'feed/uploadImage',
@@ -79,11 +79,14 @@ const feedSlice = createSlice({
   initialState: {
     value: 0,
     feeds: [],
+    users:[],
     imageUrl: null,
     loading: false,
     error: null,
   },
-  reducers: {},
+  reducers: {
+
+  },
   extraReducers: (builder) => {
     builder
       // Handling addFeedData
@@ -136,6 +139,7 @@ const feedSlice = createSlice({
         state.error = action.payload;
       })
       .addCase(fetchUserName.fulfilled, (state, action) => {
+        state.loading = false;
         state.users = action.payload;
       });
   },

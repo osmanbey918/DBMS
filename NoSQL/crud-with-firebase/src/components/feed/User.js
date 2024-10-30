@@ -13,18 +13,16 @@
 
 
 
-
+import { useSelector } from 'react-redux';
+import { selectCurrentUser } from '../../store/slices/userSlice';
 import React from 'react';
 
-export default function User({ users }) {
-  // Check if user exists before rendering
-  if (!users) {
-    return <h1>No active user</h1>;
-  }
+export default function User() {
+  const currentUser = useSelector(selectCurrentUser);
 
   return (
     <div>
-      <h1>{users.name}</h1>
+        <h1>{currentUser.name}</h1>
     </div>
   );
 }

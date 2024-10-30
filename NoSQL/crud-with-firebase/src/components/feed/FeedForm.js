@@ -2,15 +2,20 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addFeedData, uploadImage } from "../../store/slices/feedSlice";
+import { selectCurrentUser } from '../../store/slices/userSlice';
+import User from "./User";
 
 const FeedForm = ({ onClose }) => {
     const dispatch = useDispatch();
-    const { users } = useSelector((state) => state.user); // Get users from state
-    const activeUser = users && users.length > 0 ? users[0] : null; // Select the active user
+    // const { users } = useSelector((state) => state.user); // Get users from state
+    // const activeUser = users && users.length > 0 ? users[0] : null; // Select the active user
+    // const activeuser = <User/>;
+    const currentUser = useSelector(selectCurrentUser);
 
     const [formData, setFormData] = useState({
         title: '',
         description: '',
+        userName:'',
         img: null
     });
 
@@ -35,11 +40,11 @@ const FeedForm = ({ onClose }) => {
                 title: formData.title, 
                 description: formData.description, 
                 img: imageUrl,
-                userName: activeUser ? activeUser.name : "Guest" // Use active user's name or default to "Guest"
+                userName:currentUser.name // Use active user's name or default to "Guest"
             })).unwrap();
 
             // Reset the form and close it
-            setFormData({ title: '', description: '', img: null });
+            setFormData({ title: '', description: '', img: null,userName:'' });
             onClose();
         } catch (error) {
             console.error("Failed to upload image or add feed data:", error);
@@ -48,16 +53,9 @@ const FeedForm = ({ onClose }) => {
 
     return (
         <div className="form-container">
+            
             <form onSubmit={submit}>
-                {/* <label htmlFor="title">Title</label>
-                <input
-                    type="text"
-                    name="title"
-                    value={formData.title}
-                    onChange={handleChange}
-                    placeholder="Enter title"
-                /> */}
-
+                {/* <h1 value={formData.userName} name="userName" onChange={handleChange}><User/></h1> */}
                 <label htmlFor="description">Description</label>
                 <textarea
                     cols={12}

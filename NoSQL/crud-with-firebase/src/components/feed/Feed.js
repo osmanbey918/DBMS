@@ -8,31 +8,32 @@ import FeedList from "./FeedList";
 import User from "./User";
 
 const Feed = () => {
-    const { feeds, loading, error} = useSelector((state) => state.feed); // Combined useSelector to avoid redundancy
-    const {users} = useSelector((state) => state.user); // Combined useSelector to avoid redundancy
+    const { feeds, loading, error } = useSelector((state) => state.feed); 
+    // const { users } = useSelector((state) => state.user); 
     const [isBoxVisible, setIsBoxVisible] = useState(false);
     const dispatch = useDispatch();
-    const activeUser = users && users.length > 0 ? users[0] : null;
+    
+    // const activeUser = users && users.length > 0 ? users[0] : null;
     useEffect(() => {
         dispatch(fetchFeedData());
         dispatch(fetchUserName());
     }, [dispatch]);
 
     const toggleBox = () => {
-        setIsBoxVisible(!isBoxVisible); 
+        setIsBoxVisible(!isBoxVisible);
     };
 
     return (
-        <div className="container">
-            <div className="create-btn-con">
+        <div className="Feed-container">
+            <div className="create-btn-container">
                 <button onClick={toggleBox} className="create-btn">
                     Create Post
                 </button>
             </div>
             {isBoxVisible && <FeedForm onClose={toggleBox} />}
             <FeedList feeds={feeds} />
-            <User users={activeUser}/>
-            {error && <p>Error: {error}</p>}
+            <User/>
+            {error && <p className="error-message">Error: {error}</p>} {/* Apply the error-message class here */}
         </div>
     );
 };

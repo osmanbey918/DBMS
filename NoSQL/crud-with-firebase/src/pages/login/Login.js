@@ -11,7 +11,7 @@ export default function Login() {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  
+
   // Access loading state from Redux store
   const loading = useSelector((state) => state.authSlice.loading);
 
@@ -26,11 +26,9 @@ export default function Login() {
   return (
     <div className="login-container">
       <div className="login-box">
-        <h1>
-          Login
-          <button onClick={() => navigate('/signup')} className="l-btn">
-            <h1>/SignUp</h1>
-          </button>
+        <h1>Login<button onClick={() => navigate('/signup')} className="l-btn">
+          <h1>/SignUp</h1>
+        </button>
         </h1>
         <input
           type="email"

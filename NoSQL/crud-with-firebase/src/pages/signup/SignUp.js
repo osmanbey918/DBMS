@@ -33,7 +33,10 @@ export default function Signup() {
   return (
     <div className="signup-container">
       <div className="signup-box">
-        <h1>Signup<button onClick={()=>navigate('/login')} className="l-btn"><h1>/Login</h1></button></h1>
+        <h1>Signup<button onClick={() => navigate('/login')} className="l-btn">
+          <h1>/Login</h1>
+        </button>
+        </h1>
         <input
           type="text"
           placeholder="Enter email"

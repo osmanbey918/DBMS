@@ -6,7 +6,6 @@ const FeedItem = ({ feed },{user}) => {
     return (
         <div className="post-container">
             <div className="post">
-                {/* <h2 className="post-title">{user.email}i am poster</h2> */}
                 <h1>{feed.userName}</h1>
                 <span className="post-description">
                     <pre className="post-description" rows={15} cols={15} disabled>
@@ -26,7 +25,6 @@ const FeedItem = ({ feed },{user}) => {
                     </span>
 
                     <button className="like-button">👍 Like</button>
-                    {/* Pass collectionName and docId to DeleteBtn */}
                     <DeleteBtn collectionName="feeds" docId={feed.id} />
                 </div>
             </div>

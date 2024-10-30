@@ -1,655 +1,4 @@
-/* Post.css */
-.post {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 16px;
-  margin-bottom: 16px;
-}
-
-.post-title {
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 8px;
-}
-
-.post-description {
-  font-size: 16px;
-  margin-bottom: 12px;
-}
-
-.post-image {
-  width: 200px;
-  height: 300px;
-  border-radius: 8px;
-}
-
-
-
-
-
-/* Form.css */
-.form-container {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 16px;
-  max-width: 400px;
-  margin: 0 auto;
-  background-color: #f9f9f9;
-}
-
-.form-container form {
-  display: flex;
-  flex-direction: column;
-}
-
-.form-container label {
-  margin-bottom: 8px;
-  font-weight: bold;
-}
-
-.form-container input[type="text"],
-.form-container input[type="file"] {
-  padding: 8px;
-  margin-bottom: 16px;
-  border-radius: 4px;
-  border: 1px solid #ddd;
-  font-size: 16px;
-}
-
-.form-container button {
-  padding: 10px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.form-container button:hover {
-  background-color: #0056b3;
-}
-
-/* src/components/FeedItem.css */
-
-
-
-
-
-
-
-
-
-/* src/components/FeedItem.css */
-/* src/components/FeedItem.css */
-
-.post {
-  border: 1px solid #ddd;
-  /* Light border around the post */
-  border-radius: 8px;
-  /* Rounded corners */
-  padding: 26px;
-  /* Padding inside the post */
-  margin: 16px 0;
-  /* Vertical margin between posts */
-  background-color: #ffffff;
-  /* White background for the post */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  /* Subtle shadow for depth */
-  transition: box-shadow 0.3s;
-  /* Smooth shadow transition on hover */
-  width: 400px;
-  font-family: sans-serif;
-  /* Full width on mobile */
-}
-
-.post-container {
-  display: flex;
-  justify-content: center;
-}
-
-.post-description {
-  font-size: 1em;
-  /* Normal font size for description */
-  color: #555;
-  /* width: 340px; */
-  font-family: sans-serif;
-  /* Medium gray color for description text */
-  margin: 8px 0;
-  text-align: left;
-  text-wrap: wrap;
-  /* Margin above and below description */
-}
-
-.post-image {
-  width: 360px;
-  height: 340px;
-  /* Full width image */
-  border-radius: 6px;
-  /* Slightly rounded corners for images */
-  margin: 10px 0;
-  /* Margin around the image */
-  object-fit: contain;
-  display: flex;
-  justify-self: center;
-  /* Maintain aspect ratio while covering the area */
-}
-
-.post-footer {
-  display: flex;
-  /* Flexbox for footer layout */
-  justify-content: space-between;
-  /* Space between date and button */
-  align-items: center;
-  /* Center items vertically */
-  margin-top: 10px;
-  /* Margin above footer */
-}
-
-.post-date {
-  font-size: 0.8em;
-  /* Smaller font size for date */
-  color: #888;
-  /* Light gray color for date text */
-}
-
-.like-button {
-  background-color: #007bff;
-  /* Primary blue color for button */
-  color: white;
-  /* White text color */
-  border: none;
-  /* Remove border */
-  border-radius: 4px;
-  /* Rounded corners for button */
-  padding: 5px 8px;
-  /* Padding inside the button */
-  cursor: pointer;
-  /* Pointer cursor on hover */
-  transition: background-color 0.3s;
-  /* Smooth transition for hover effect */
-  font-size: 0.9em;
-  /* Font size for the button text */
-}
-
-.like-button:hover {
-  background-color: #0056b3;
-  /* Darker blue on hover */
-}
-
-/* Media Queries for Additional Responsiveness */
-@media (max-width: 480px) {
-  .post {
-    padding: 12px;
-    /* Reduced padding on very small screens */
-  }
-
-  .post-title {
-    font-size: 1.3em;
-    /* Slightly smaller title on small screens */
-  }
-
-  .post-description {
-    font-size: 0.9em;
-    /* Slightly smaller description on small screens */
-  }
-
-  .post-date {
-    font-size: 0.7em;
-    /* Smaller font size for date on small screens */
-  }
-
-  .like-button {
-    padding: 4px 6px;
-    /* Smaller padding for button on small screens */
-    font-size: 0.8em;
-    /* Smaller button text on small screens */
-  }
-}
-
-/* src/Login.css */
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Arial', sans-serif;
-  background-color: #f7f8fa;
-  /* Soft background */
-}
-
-.login-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #f7f8fa;
-}
-
-.login-box {
-  background-color: white;
-  padding: 40px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 350px;
-  text-align: center;
-}
-
-h1 {
-  margin-bottom: 20px;
-  font-size: 2rem;
-  color: #333;
-}
-
-.input-field {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 1rem;
-}
-
-.login-button {
-  width: 100%;
-  padding: 12px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 1rem;
-  cursor: pointer;
-  margin-top: 10px;
-  transition: background-color 0.3s ease;
-}
-
-.login-button:hover {
-  background-color: #45a049;
-}
-
-input::placeholder {
-  color: #999;
-}
-
-@media (max-width: 600px) {
-  .login-box {
-    width: 90%;
-  }
-}
-
-/* src/Signup.css */
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Arial', sans-serif;
-  background-color: #f7f8fa;
-  /* Soft background */
-}
-
-.signup-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #f7f8fa;
-}
-
-.signup-box {
-  background-color: white;
-  padding: 40px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 400px;
-  text-align: center;
-}
-
-h1 {
-  margin-bottom: 20px;
-  font-size: 2rem;
-  color: #333;
-}
-
-.input-field {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 1rem;
-}
-
-.signup-button,
-.btn-log {
-  width: 100%;
-  padding: 12px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 1rem;
-  cursor: pointer;
-  margin-top: 20px;
-  transition: background-color 0.3s ease;
-}
-
-.signup-button:hover {
-  background-color: #45a049;
-}
-
-.gender-section {
-  display: flex;
-  justify-content: space-between;
-  margin: 20px 0;
-}
-
-.gender-section label {
-  display: flex;
-  align-items: center;
-}
-
-input[type="radio"] {
-  margin-right: 5px;
-}
-
-input::placeholder {
-  color: #999;
-}
-
-@media (max-width: 600px) {
-  .signup-box {
-    width: 90%;
-  }
-}
-
-
-.feedstxt {
-  margin: auto;
-  text-align: center;
-}
-
-.btn-log {
-  width: 90px;
-
-  position: fixed;
-  right: 0px;
-  top: 0px;
-}
-
-.create-btn-con {
-  border: 1px solid #ddd;
-  /* Light border around the post */
-  border-radius: 8px;
-  /* Rounded corners */
-  padding: 16px;
-  /* Padding inside the post */
-  margin: 16px 0;
-  /* Vertical margin between posts */
-  background-color: #ffffff;
-  /* White background for the post */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  /* Subtle shadow for depth */
-  transition: box-shadow 0.3s;
-  /* Smooth shadow transition on hover */
-  width: 400px;
-  display: flex;
-  justify-content: center;
-  justify-self: center;
-}
-
-.create-btn {
-  height: 30px;
-  background: #45a049;
-  color: white;
-  border: none;
-  border-radius: 8px;
-
-}
-
-.create-btn :hover {
-  background: #4CAF50;
-}
-
-.create-btn :active {
-  background: #96e599;
-
-}
-textarea{
-  outline: none;
-  border: none;
-  border-radius: 4px;
-  box-shadow: 1px 2px 10px grey;
-}
-.l-btn{
-  outline: none;
-  border: none;
-  background: transparent;
-}
-/* Post.css */
-.post {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 16px;
-  margin-bottom: 16px;
-  background-color: #ffffff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 400px;
-}
-
-.post-title {
-  font-size: 1.5em;
-  font-weight: bold;
-  margin-bottom: 8px;
-}
-
-.post-description {
-  font-size: 1em;
-  margin-bottom: 12px;
-  color: #555;
-}
-
-.post-image {
-  width: 100%;
-  max-width: 360px;
-  height: auto;
-  border-radius: 8px;
-  object-fit: contain;
-  margin: 10px 0;
-}
-
-.post-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 10px;
-}
-
-.post-date {
-  font-size: 0.8em;
-  color: #888;
-}
-
-.like-button {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  padding: 5px 8px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-  font-size: 0.9em;
-}
-
-.like-button:hover {
-  background-color: #0056b3;
-}
-
-/* Form.css */
-.form-container {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 16px;
-  max-width: 400px;
-  margin: 0 auto;
-  background-color: #f9f9f9;
-}
-
-.form-container form {
-  display: flex;
-  flex-direction: column;
-}
-
-.form-container label {
-  margin-bottom: 8px;
-  font-weight: bold;
-}
-
-.form-container input[type="text"],
-.form-container input[type="file"] {
-  padding: 8px;
-  margin-bottom: 16px;
-  border-radius: 4px;
-  border: 1px solid #ddd;
-  font-size: 16px;
-}
-
-.form-container button {
-  padding: 10px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.form-container button:hover {
-  background-color: #0056b3;
-}
-
-/* Login.css */
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Arial', sans-serif;
-  background-color: #f7f8fa;
-}
-
-.login-container,
-.signup-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #f7f8fa;
-}
-
-.login-box,
-.signup-box {
-  background-color: white;
-  padding: 40px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 90%;
-  max-width: 400px;
-  text-align: center;
-}
-
-h1 {
-  margin-bottom: 20px;
-  font-size: 2rem;
-  color: #333;
-}
-
-.input-field {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 1rem;
-}
-
-.login-button,
-.signup-button {
-  width: 100%;
-  padding: 12px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 1rem;
-  cursor: pointer;
-  margin-top: 10px;
-  transition: background-color 0.3s ease;
-}
-
-.login-button:hover,
-.signup-button:hover {
-  background-color: #45a049;
-}
-
-input::placeholder {
-  color: #999;
-}
-
-/* FeedItem.css */
-.post-container {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-textarea {
-  outline: none;
-  border: none;
-  border-radius: 4px;
-  box-shadow: 1px 2px 10px grey;
-  width: 100%;
-}
-
-.l-btn {
-  outline: none;
-  border: none;
-  background: transparent;
-}
-
-/* Media Queries */
-@media (max-width: 600px) {
-  .post {
-    padding: 12px;
-  }
-
-  .post-title {
-    font-size: 1.3em;
-  }
-
-  .post-description {
-    font-size: 0.9em;
-  }
-
-  .post-date {
-    font-size: 0.7em;
-  }
-
-  .like-button {
-    padding: 4px 6px;
-    font-size: 0.8em;
-  }
-
-  .create-btn-con {
-    width: 100%;
-  }
-}
-/* Global Styles */
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f0f2f5; /* Light gray background */
-}
-
-/* Login and Signup Styles */
-.login-container,
-.signup-container {
+.signup-container, .login-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -657,111 +6,131 @@ body {
   background-color: #f0f2f5;
 }
 
-.login-box,
-.signup-box {
-  background-color: white;
-  padding: 40px;
+.signup-box, .login-box {
+  background-color: #ffffff;
   border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  width: 90%;
-  max-width: 400px;
-  text-align: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+  width: 400px;
 }
 
-h1 {
+.signup-box h1, .login-box h1 {
+  font-size: 24px;
+  font-weight: 600;
+  color: #1877f2;
   margin-bottom: 20px;
-  font-size: 1.8rem;
-  color: #333;
 }
 
 .input-field {
   width: 100%;
   padding: 12px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
+  margin-bottom: 15px;
+  border: 1px solid #ddd;
   border-radius: 5px;
-  font-size: 1rem;
+  font-size: 14px;
 }
 
-.login-button,
-.signup-button {
+.gender-section {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.gender-section label {
+  font-size: 14px;
+}
+
+/* SIgnUp and Login Button CSS */
+.signup-button, .login-button {
   width: 100%;
   padding: 12px;
-  background-color: #1877f2; /* Facebook blue */
-  color: white;
-  border: none;
-  border-radius: 5px;
-  font-size: 1rem;
-  cursor: pointer;
-  margin-top: 10px;
-  transition: background-color 0.3s ease;
-}
-
-.login-button:hover,
-.signup-button:hover {
-  background-color: #1558b0; /* Darker blue on hover */
-}
-
-/* Feed Form Styles */
-.form-container {
-  border: none;
-  border-radius: 8px;
-  padding: 16px;
-  max-width: 600px;
-  margin: 20px auto;
-  background-color: white;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.form-container textarea {
-  width: 100%;
-  padding: 10px;
-  border-radius: 5px;
-  border: 1px solid #ddd;
-  resize: none;
-}
-
-.form-container button {
-  padding: 10px;
   background-color: #1877f2;
-  color: white;
+  color: #ffffff;
   border: none;
   border-radius: 5px;
+  font-size: 16px;
+  font-weight: 600;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s;
+}
+.signup-button:hover, .login-button:hover {
+  background-color: #145dbf;
+}
+.signup-button:active, .login-button:active {
+  background-color: #0e4bbf; 
+  transform: scale(0.98);
 }
 
-.form-container button:hover {
-  background-color: #1558b0;
-}
-
-/* Post Styles */
-.post {
+.l-btn {
+  background: none;
   border: none;
-  border-radius: 8px;
-  padding: 16px;
-  margin: 16px auto;
-  background-color: white;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 600px;
+  color: #1877f2;
+  cursor: pointer;
+  font-size: 14px;
+  text-decoration: underline;
 }
 
-.post-title {
-  font-size: 1.5em;
-  font-weight: bold;
-  color: #333;
+.l-btn:hover {
+  text-decoration: none;
+}
+
+
+/*  Delete Button Css */
+.delete-button {
+  width: 100%;
+  padding: 12px;
+  background-color: #ff4d4d; 
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.1s;
+}
+
+.delete-button:hover {
+  background-color: #e63939;
+}
+
+.delete-button:active {
+  background-color: #c72c2c; 
+  transform: scale(0.98); 
+}
+
+
+/* Feed Item CSS */
+.post-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.post {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 100%;
+  max-width: 600px; /* Limit the maximum width of the post */
+}
+
+.post h1 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1877f2;
+  margin-bottom: 10px;
 }
 
 .post-description {
-  font-size: 1em;
-  color: #555;
+  font-size: 16px;
+  color: #333;
+  white-space: pre-line; /* Preserve whitespace and line breaks */
   margin: 10px 0;
 }
 
 .post-image {
   width: 100%;
-  height: auto;
   border-radius: 5px;
   margin: 10px 0;
 }
@@ -774,40 +143,151 @@ h1 {
 }
 
 .post-date {
-  font-size: 0.8em;
+  font-size: 12px;
   color: #888;
 }
 
 .like-button {
-  background-color: #42b72a; /* Facebook green */
-  color: white;
+  background-color: transparent;
+  border: none;
+  color: #1877f2;
+  font-size: 16px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.like-button:hover {
+  color: #145dbf; /* Darker shade on hover */
+}
+
+
+/* for feedform css  */
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f2f5;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 600px; /* Limit the maximum width of the form */
+  margin: 20px auto; /* Center the form and add vertical margin */
+}
+
+form {
+  width: 100%;
+}
+
+label {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 5px;
+  display: block; /* Ensure labels are block-level for proper spacing */
+}
+
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+  margin-bottom: 15px;
+  resize: none; /* Prevent resizing */
+}
+
+input[type="file"] {
+  margin-bottom: 15px;
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background-color: #1877f2;
+  color: #ffffff;
   border: none;
   border-radius: 5px;
-  padding: 6px 10px;
+  font-size: 16px;
+  font-weight: 600;
   cursor: pointer;
   transition: background-color 0.3s;
 }
 
-.like-button:hover {
-  background-color: #36a420; /* Darker green on hover */
+button[type="submit"]:hover {
+  background-color: #145dbf; /* Darker shade on hover */
 }
 
-/* Media Queries */
-@media (max-width: 600px) {
-  .post,
-  .form-container,
-  .login-box,
-  .signup-box {
-    width: 95%;
-  }
+button[type="submit"]:active {
+  background-color: #0e4bbf; /* Even darker shade when clicked */
+  transform: scale(0.98); /* Slightly shrink the button */
+}
 
-  h1 {
-    font-size: 1.5rem;
-  }
+/* Feed css */
+.Feed-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #f0f2f5;
+}
 
-  .input-field,
-  .login-button,
-  .signup-button {
-    padding: 10px;
-  }
+.create-btn-container {
+  margin-bottom: 20px;
+}
+
+.create-btn {
+  padding: 12px 20px;
+  background-color: #1877f2;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.create-btn:hover {
+  background-color: #145dbf;
+}
+
+.create-btn:active {
+  background-color: #0e4bbf;
+  transform: scale(0.98);
+}
+
+.error-message {
+  color: #ff4d4d;
+  margin-top: 10px;
+}
+.logout-container {
+  margin-bottom: 20px; /* Space below the logout button */
+  text-align: right; /* Align the button to the right */
+}
+
+.feedstxt {
+  font-size: 28px;
+  font-weight: 600;
+  color: #1877f2;
+}
+
+.btn-log {
+  padding: 10px 15px;
+  background-color: #ff4d4d;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-log:hover {
+  background-color: #d43f3f;
+}
+
+.btn-log:active {
+  background-color: #b52e2e;
+  transform: scale(0.98);
 }

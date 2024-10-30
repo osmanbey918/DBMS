@@ -10,11 +10,11 @@ export default function Home() {
     dispatch(logout())
   }
   return (
-    <div>
-      <h1 className='feedstxt'>
-        Feeds</h1>
-      <button onClick={handleLogout} className='btn-log'>logout</button>
+    <div className="header-container">
+      <h1 className='feedstxt'>Feeds</h1>
+      <button onClick={handleLogout} className='btn-log'>Logout</button>
       <Feed />
     </div>
-  )
+  );
+
 }

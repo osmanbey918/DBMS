@@ -7,6 +7,7 @@ const FeedItem = ({ feed },{user}) => {
         <div className="post-container">
             <div className="post">
                 {/* <h2 className="post-title">{user.email}i am poster</h2> */}
+                <h1>{feed.userName}</h1>
                 <span className="post-description">
                     <pre className="post-description" rows={15} cols={15} disabled>
                         {feed.description}

@@ -7,7 +7,7 @@ import { collection, addDoc, getDocs, doc, deleteDoc } from 'firebase/firestore'
 export const fetchUserName = createAsyncThunk(
   'user/fetchUserName',
   async (_, { rejectWithValue }) => {
-    const userName = await getDocs(collection(db, 'users'));
+    const userName = await getDocs(collection(db, 'users'),);
     return userName.docs.map((doc) => ({
       id: doc.id,
       ...doc.data(),

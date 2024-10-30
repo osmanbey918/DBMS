@@ -12,7 +12,7 @@ const Feed = () => {
     const {users} = useSelector((state) => state.user); // Combined useSelector to avoid redundancy
     const [isBoxVisible, setIsBoxVisible] = useState(false);
     const dispatch = useDispatch();
-
+    const activeUser = users && users.length > 0 ? users[0] : null;
     useEffect(() => {
         dispatch(fetchFeedData());
         dispatch(fetchUserName());
@@ -31,7 +31,7 @@ const Feed = () => {
             </div>
             {isBoxVisible && <FeedForm onClose={toggleBox} />}
             <FeedList feeds={feeds} />
-            <User users={users}/>
+            <User users={activeUser}/>
             {error && <p>Error: {error}</p>}
         </div>
     );

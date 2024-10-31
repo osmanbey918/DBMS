@@ -22,14 +22,14 @@ const userSlice = createSlice({
   name: 'user',
   initialState: {
     users: [],
-    currentUser: null, // State for the currently logged-in user
+    currentUser: "null", // State for the currently logged-in user
   },
   reducers: {
     setCurrentUser(state, action) {
       state.currentUser = action.payload; // Set the current user
     },
     clearCurrentUser(state) {
-      state.currentUser = null; // Clear the current user
+      state.currentUser = "null"; // Clear the current user
     },
   },
   extraReducers: (builder) => {
@@ -43,7 +43,7 @@ const userSlice = createSlice({
 
         if (user) {
           const loggedInUser = action.payload.find((u) => u.email === user.email);
-          state.currentUser = loggedInUser || null; // Set currentUser if found
+          state.currentUser = loggedInUser || "null"; // Set currentUser if found
         }
       });
   },

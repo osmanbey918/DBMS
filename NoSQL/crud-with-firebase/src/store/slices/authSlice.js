@@ -1,37 +1,36 @@
 // authSlice
-import { createUserWithEmailAndPassword,signInWithEmailAndPassword,signOut } from "firebase/auth";
-
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { auth, db } from "../../config/firebaseConfig";
-import { addDoc ,doc, collection, getDoc, setDoc} from "firebase/firestore";
+import { addDoc, doc, collection, getDoc, setDoc } from "firebase/firestore";
 import Loading from "../../components/loading/Loading";
 
 
 export const getCurrentUser = createAsyncThunk(
     "auth/currentUser",
-    async ()=>{
+    async () => {
         try {
             const user = auth.currentUser;
             if (user) {
                 return user
             }
-         
+
         } catch (error) {
-            
+
         }
-         
+
     }
 )
 
-export const logout= createAsyncThunk(
+export const logout = createAsyncThunk(
     "auth/logout",
-    async ()=>{
+    async () => {
         try {
             await signOut(auth)
             return true
         } catch (error) {
             console.log(error);
-            
+
         }
     }
 )
@@ -41,24 +40,16 @@ export const login = createAsyncThunk(
     async (user) => {
 
         try {
-            console.log("user",user);
-            
-         const userCredential =   await signInWithEmailAndPassword(auth, user.email, user.password)
-         console.log("userCredential in login",userCredential.user.uid);
-         
-         const docSnap = await getDoc(doc(db, "users",userCredential.user.uid))
-         const dbUser = docSnap?.data()
-         console.log("dbUser",dbUser);
-         
-         
-         return dbUser
-
-
+            // console.log("user", user);
+            const userCredential = await signInWithEmailAndPassword(auth, user.email, user.password)
+            // console.log("userCredential in login", userCredential.user.uid);
+            const docSnap = await getDoc(doc(db, "users", userCredential.user.uid))
+            const dbUser = docSnap?.data()
+            // console.log("dbUser", dbUser);
+            return dbUser
         } catch (error) {
-             console.log("error",error);
-             
+            console.log("error", error);
         }
-        
     }
 )
 
@@ -66,31 +57,31 @@ export const signup = createAsyncThunk(
     'auth/signup',
     async (user) => {
         try {
-           const userCredential = await createUserWithEmailAndPassword(auth, user.email, user.password)
-            
-           let saveUserTodb = {
+            const userCredential = await createUserWithEmailAndPassword(auth, user.email, user.password)
+
+            let saveUserTodb = {
                 email: user.email,
                 name: user.name,
                 phone: user.phone,
                 address: user.address,
                 gender: user.gender,
                 uid: userCredential.user.uid
-           }
+            }
 
-           await setDoc(doc(db, "users", userCredential.user.uid ), saveUserTodb)
-            return  saveUserTodb
-            
+            await setDoc(doc(db, "users", userCredential.user.uid), saveUserTodb)
+            return saveUserTodb
+
         } catch (error) {
             console.log("error", error);
-            
+
         }
-      
+
     }
 )
 
 const initialState = {
     user: null,
-    loading:false
+    loading: false
 }
 
 const authSlice = createSlice({
@@ -144,7 +135,7 @@ const authSlice = createSlice({
                 state.loading = false;
             });
     }
-    
+
 });
 
 export const { setUser } = authSlice.actions

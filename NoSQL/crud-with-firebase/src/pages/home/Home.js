@@ -12,10 +12,14 @@ export default function Home() {
   }
   return (
     <div className="header-container">
-      <UserProfile/>
-      <h1 className='feedstxt'>Feeds</h1>
-      <button onClick={handleLogout} className='btn-log'>Logout</button>
-      <Feed />
+      <div className='userProcomp'>
+        <UserProfile />
+      </div>
+      <div className='feedcompo'>
+        <h1 className='feedstxt'>Feeds</h1>
+        <button onClick={handleLogout} className='btn-log'>Logout</button>
+        <Feed />
+      </div>
     </div>
   );
 

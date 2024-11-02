@@ -1,8 +1,9 @@
 // signup componnet
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch,useSelector } from "react-redux";
 import { signup } from "../../store/slices/authSlice";
 import { useNavigate } from 'react-router-dom';
+import Loading from "../../components/loading/Loading";
 
 
 export default function Signup() {
@@ -12,6 +13,7 @@ export default function Signup() {
   const [phone, setPhone] = useState("")
   const [address, setAddress] = useState("")
   const [gender, setGender] = useState("")
+  const loading = useSelector((state) => state.authSlice.loading);
 
   const dispatch = useDispatch()
   const navigate = useNavigate();
@@ -90,6 +92,7 @@ export default function Signup() {
         </div>
 
         <button onClick={handleSignup} className="signup-button">Signup</button>
+        {loading && <Loading/>}
       </div>
     </div>
   )

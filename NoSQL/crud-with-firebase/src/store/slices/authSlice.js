@@ -21,38 +21,6 @@ export const getCurrentUser = createAsyncThunk(
 
     }
 )
-
-export const logout = createAsyncThunk(
-    "auth/logout",
-    async () => {
-        try {
-            await signOut(auth)
-            return true
-        } catch (error) {
-            console.log(error);
-
-        }
-    }
-)
-
-export const login = createAsyncThunk(
-    'auth/login',
-    async (user) => {
-
-        try {
-            // console.log("user", user);
-            const userCredential = await signInWithEmailAndPassword(auth, user.email, user.password)
-            // console.log("userCredential in login", userCredential.user.uid);
-            const docSnap = await getDoc(doc(db, "users", userCredential.user.uid))
-            const dbUser = docSnap?.data()
-            // console.log("dbUser", dbUser);
-            return dbUser
-        } catch (error) {
-            console.log("error", error);
-        }
-    }
-)
-
 export const signup = createAsyncThunk(
     'auth/signup',
     async (user) => {
@@ -76,6 +44,37 @@ export const signup = createAsyncThunk(
 
         }
 
+    }
+)
+
+export const login = createAsyncThunk(
+    'auth/login',
+    async (user) => {
+        
+        try {
+            // console.log("user", user);
+            const userCredential = await signInWithEmailAndPassword(auth, user.email, user.password)
+            // console.log("userCredential in login", userCredential.user.uid);
+            const docSnap = await getDoc(doc(db, "users", userCredential.user.uid))
+            const dbUser = docSnap?.data()
+            // console.log("dbUser", dbUser);
+            return dbUser
+        } catch (error) {
+            console.log("error", error);
+        }
+    }
+)
+
+export const logout = createAsyncThunk(
+    "auth/logout",
+    async () => {
+        try {
+            await signOut(auth)
+            return true
+        } catch (error) {
+            console.log(error);
+
+        }
     }
 )
 

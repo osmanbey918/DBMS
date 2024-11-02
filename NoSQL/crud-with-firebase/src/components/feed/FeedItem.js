@@ -25,7 +25,7 @@ const FeedItem = ({ feed },{user}) => {
                     </span>
 
                     <button className="like-button">👍 Like</button>
-                    <DeleteBtn collectionName="feeds" docId={feed.id} />
+                    <DeleteBtn docId={feed.id} />
                 </div>
             </div>
         </div>

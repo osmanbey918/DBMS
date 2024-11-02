@@ -8,14 +8,12 @@ export default function UserProfile() {
     return (
         <div className="user-profile">
             <div className="profile-info">
-                <img  alt="Profile" className="profile-picture" />
+                <img alt="Profile" className="profile-picture" />
                 <div className="user-details">
                     <h2 className="username"><User /></h2>
                     <p className="work">{currentUser.email}</p>
                 </div>
             </div>
-            
-            <h2></h2>
         </div>
     )
 }

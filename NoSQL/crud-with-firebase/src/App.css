@@ -352,3 +352,43 @@ button[type="submit"]:active {
   color: #555;
   margin: 5px 0 0;
 }
+.user-profile {
+  display: flex;
+  align-items: center;
+  background-color: #f9f9f9; /* Light background for contrast */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  margin: 20px;
+}
+
+.profile-info {
+  display: flex;
+  align-items: center;
+}
+
+.profile-picture {
+  width: 80px; /* Size of the profile picture */
+  height: 80px;
+  border-radius: 50%; /* Circular profile picture */
+  object-fit: cover; /* Ensures the image covers the area */
+  margin-right: 20px; /* Space between picture and details */
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.username {
+  font-size: 24px; /* Larger font for the username */
+  font-weight: bold; /* Bold font for emphasis */
+  color: #333; /* Dark color for better readability */
+  margin: 0; /* Remove default margin */
+}
+
+.work {
+  font-size: 16px; /* Standard font size for details */
+  color: #666; /* Grey color for less emphasis */
+  margin-top: 4px; /* Space above work email */
+}

@@ -9,8 +9,11 @@ export default function UserProfile() {
         <div className="user-profile">
             <div className="profile-info">
                 <img alt="Profile" className="profile-picture" />
+
+                
                 <div className="user-details">
                     <h2 className="username"><User /></h2>
+
                     <p className="work">{currentUser.email}</p>
                 </div>
             </div>

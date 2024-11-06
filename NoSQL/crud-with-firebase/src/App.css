@@ -1,4 +1,5 @@
-.signup-container, .login-container {
+.signup-container,
+.login-container {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -6,7 +7,8 @@
   background-color: #f0f2f5;
 }
 
-.signup-box, .login-box {
+.signup-box,
+.login-box {
   background-color: #ffffff;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -14,7 +16,8 @@
   width: 400px;
 }
 
-.signup-box h1, .login-box h1 {
+.signup-box h1,
+.login-box h1 {
   font-size: 24px;
   font-weight: 600;
   color: #1877f2;
@@ -41,7 +44,8 @@
 }
 
 /* SIgnUp and Login Button CSS */
-.signup-button, .login-button {
+.signup-button,
+.login-button {
   width: 100%;
   padding: 12px;
   background-color: #1877f2;
@@ -53,11 +57,15 @@
   cursor: pointer;
   transition: background-color 0.3s;
 }
-.signup-button:hover, .login-button:hover {
+
+.signup-button:hover,
+.login-button:hover {
   background-color: #145dbf;
 }
-.signup-button:active, .login-button:active {
-  background-color: #0e4bbf; 
+
+.signup-button:active,
+.login-button:active {
+  background-color: #0e4bbf;
   transform: scale(0.98);
 }
 
@@ -79,7 +87,7 @@
 .delete-button {
   width: 100%;
   padding: 12px;
-  background-color: #ff4d4d; 
+  background-color: #ff4d4d;
   color: #ffffff;
   border: none;
   border-radius: 5px;
@@ -94,8 +102,8 @@
 }
 
 .delete-button:active {
-  background-color: #c72c2c; 
-  transform: scale(0.98); 
+  background-color: #c72c2c;
+  transform: scale(0.98);
 }
 
 
@@ -112,7 +120,8 @@
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   padding: 20px;
   width: 100%;
-  max-width: 600px; /* Limit the maximum width of the post */
+  max-width: 600px;
+  /* Limit the maximum width of the post */
 }
 
 .post h1 {
@@ -125,7 +134,8 @@
 .post-description {
   font-size: 16px;
   color: #333;
-  white-space: pre-line; /* Preserve whitespace and line breaks */
+  white-space: pre-line;
+  /* Preserve whitespace and line breaks */
   margin: 10px 0;
 }
 
@@ -157,7 +167,8 @@
 }
 
 .like-button:hover {
-  color: #145dbf; /* Darker shade on hover */
+  color: #145dbf;
+  /* Darker shade on hover */
 }
 
 
@@ -171,9 +182,11 @@
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 600px; /* Limit the maximum width of the form */
-  
-  margin: 40px 0; /* Center the form and add vertical margin */
+  max-width: 600px;
+  /* Limit the maximum width of the form */
+
+  margin: 40px 0;
+  /* Center the form and add vertical margin */
 }
 
 form {
@@ -184,7 +197,8 @@ label {
   font-size: 14px;
   font-weight: 600;
   margin-bottom: 5px;
-  display: block; /* Ensure labels are block-level for proper spacing */
+  display: block;
+  /* Ensure labels are block-level for proper spacing */
 }
 
 textarea {
@@ -194,7 +208,8 @@ textarea {
   border-radius: 5px;
   font-size: 14px;
   margin-bottom: 15px;
-  resize: none; /* Prevent resizing */
+  resize: none;
+  /* Prevent resizing */
 }
 
 input[type="file"] {
@@ -215,12 +230,15 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-  background-color: #145dbf; /* Darker shade on hover */
+  background-color: #145dbf;
+  /* Darker shade on hover */
 }
 
 button[type="submit"]:active {
-  background-color: #0e4bbf; /* Even darker shade when clicked */
-  transform: scale(0.98); /* Slightly shrink the button */
+  background-color: #0e4bbf;
+  /* Even darker shade when clicked */
+  transform: scale(0.98);
+  /* Slightly shrink the button */
 }
 
 /* Feed css */
@@ -261,9 +279,12 @@ button[type="submit"]:active {
   color: #ff4d4d;
   margin-top: 10px;
 }
+
 .logout-container {
-  margin-bottom: 20px; /* Space below the logout button */
-  text-align: right; /* Align the button to the right */
+  margin-bottom: 20px;
+  /* Space below the logout button */
+  text-align: right;
+  /* Align the button to the right */
 }
 
 .feedstxt {
@@ -291,7 +312,9 @@ button[type="submit"]:active {
 .btn-log:active {
   background-color: #b52e2e;
   transform: scale(0.98);
-}.header-container {
+}
+
+.header-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -352,13 +375,16 @@ button[type="submit"]:active {
   color: #555;
   margin: 5px 0 0;
 }
+
 .user-profile {
   display: flex;
   align-items: center;
-  background-color: #f9f9f9; /* Light background for contrast */
+  background-color: #f9f9f9;
+  /* Light background for contrast */
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* Subtle shadow for depth */
   margin: 20px;
 }
 
@@ -368,11 +394,12 @@ button[type="submit"]:active {
 }
 
 .profile-picture {
-  width: 80px; /* Size of the profile picture */
+  width: 80px;
+  /* Size of the profile picture */
   height: 80px;
-  border-radius: 50%; /* Circular profile picture */
-  object-fit: cover; /* Ensures the image covers the area */
-  margin-right: 20px; /* Space between picture and details */
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 20px;
 }
 
 .user-details {
@@ -381,14 +408,17 @@ button[type="submit"]:active {
 }
 
 .username {
-  font-size: 24px; /* Larger font for the username */
-  font-weight: bold; /* Bold font for emphasis */
-  color: #333; /* Dark color for better readability */
-  margin: 0; /* Remove default margin */
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin: 0;
 }
 
 .work {
-  font-size: 16px; /* Standard font size for details */
-  color: #666; /* Grey color for less emphasis */
-  margin-top: 4px; /* Space above work email */
+  font-size: 16px;
+
+  color: #666;
+
+  margin-top: 4px;
+
 }

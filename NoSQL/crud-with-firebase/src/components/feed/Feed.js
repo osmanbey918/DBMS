@@ -6,7 +6,7 @@ import FeedForm from "./FeedForm";
 import { fetchUserName } from "../../store/slices/userSlice";
 import FeedList from "./FeedList";
 import User from "./User";
-import UserProfile from "../userProfile/UserProfile";
+
 
 const Feed = () => {
     const { feeds, loading, error } = useSelector((state) => state.feed); 

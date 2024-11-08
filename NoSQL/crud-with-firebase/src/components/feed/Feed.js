@@ -35,7 +35,7 @@ const Feed = () => {
             {isBoxVisible && <FeedForm onClose={toggleBox} />}
             <FeedList feeds={feeds} />
             <User/>
-            {error && <p className="error-message">Error: {error}</p>} {/* Apply the error-message class here */}
+            {error && <p className="error-message">Error: {error}</p>} 
         </div>
     );
 };

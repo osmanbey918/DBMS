@@ -5,7 +5,7 @@ import { collection, addDoc, getDocs, doc, deleteDoc } from 'firebase/firestore'
 
 const storage = getStorage();
 
-// Thunk to add data to Firestore
+
 
 export const fetchFeedData = createAsyncThunk(
   'feed/fetchFeedData',

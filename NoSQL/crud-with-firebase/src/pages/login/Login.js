@@ -4,23 +4,28 @@ import { login } from '../../store/slices/authSlice';
 import { useNavigate } from 'react-router-dom';
 import Loading from '../../components/loading/Loading';
 
-
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   // Access loading state from Redux store
-  const loading = useSelector((state) => state.authSlice.loading);
+  const loading = useSelector((state) => state.auth.loading);
 
-  const handleLogin = () => {
+  const handleLogin = async () => {
+    setError("");
     const user = {
       email,
       password,
     };
-    dispatch(login(user));
+    try {
+      await dispatch(login(user)).unwrap();
+    } catch (err) {
+      setError("Login failed. Please check your credentials and try again.");
+    }
   };
 
   return (
@@ -30,6 +35,7 @@ export default function Login() {
           <h1>/SignUp</h1>
         </button>
         </h1>
+        {error && <div className="error-message">{error}</div>}
         <input
           type="email"
           placeholder="Enter email"

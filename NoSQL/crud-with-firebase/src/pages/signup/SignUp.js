@@ -1,10 +1,9 @@
 // signup componnet
-import { useState } from "react";
+import React, { useState } from "react";
 import { useDispatch,useSelector } from "react-redux";
 import { signup } from "../../store/slices/authSlice";
 import { useNavigate } from 'react-router-dom';
 import Loading from "../../components/loading/Loading";
-
 
 export default function Signup() {
   const [email, setEmail] = useState("")
@@ -13,12 +12,16 @@ export default function Signup() {
   const [phone, setPhone] = useState("")
   const [address, setAddress] = useState("")
   const [gender, setGender] = useState("")
-  const loading = useSelector((state) => state.authSlice.loading);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+  const loading = useSelector((state) => state.auth.loading);
 
   const dispatch = useDispatch()
   const navigate = useNavigate();
 
-  const handleSignup = () => {
+  const handleSignup = async () => {
+    setError("");
+    setSuccess("");
     let user = {
       email,
       password,
@@ -27,9 +30,13 @@ export default function Signup() {
       address,
       gender
     }
-    console.log("Signup clicked", user);
-    dispatch(signup(user))
-    navigate('/login');
+    try {
+      await dispatch(signup(user)).unwrap();
+      setSuccess("Signup successful! Please login.");
+      navigate('/login');
+    } catch (err) {
+      setError("Signup failed. Please check your details and try again.");
+    }
   }
 
   return (
@@ -39,6 +46,8 @@ export default function Signup() {
           <h1>/Login</h1>
         </button>
         </h1>
+        {error && <div className="error-message">{error}</div>}
+        {success && <div className="success-message">{success}</div>}
         <input
           type="text"
           placeholder="Enter email"

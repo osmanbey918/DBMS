@@ -14,7 +14,10 @@ export default function UserProfile() {
                 <img src={currentUser.photoURL || 'https://via.placeholder.com/80'} alt="Profile" className="profile-picture" />
                 <div className="user-details">
                     <h2 className="username">{currentUser.name}</h2>
-                    <p className="work">{currentUser.email}</p>
+                    <div className="user-contact">
+                        <p className="user-email">{currentUser.email}</p>
+                        <p className="user-address">{currentUser.address}</p>
+                    </div>
                 </div>
             </div>
         </div>

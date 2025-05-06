@@ -5,7 +5,6 @@ import { fetchFeedData } from "../../store/slices/feedSlice";
 import FeedForm from "./FeedForm";
 import { fetchUserName } from "../../store/slices/userSlice";
 import FeedList from "./FeedList";
-import User from "./User";
 import Modal from "../common/Modal";
 
 const Feed = () => {
@@ -24,16 +23,19 @@ const Feed = () => {
 
     return (
         <div className="Feed-container">
-            <div className="create-btn-container">
-                <button onClick={toggleBox} className="create-btn">
-                    Create Post
-                </button>
+            <div className="feed-header">
+                <h1 className='feedstxt'>Feeds</h1>
+                <div className="create-btn-container">
+                    <button onClick={toggleBox} className="create-btn">
+                        Create Post
+                    </button>
+                </div>
             </div>
             <Modal isOpen={isBoxVisible} onClose={toggleBox}>
                 <FeedForm onClose={toggleBox} />
             </Modal>
             <FeedList feeds={feeds} />
-            <User/>
+            {/* <User/> */}
             {error && <p className="error-message">Error: {error}</p>} 
         </div>
     );

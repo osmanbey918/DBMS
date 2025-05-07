@@ -1,35 +1,35 @@
-// signup componnet
 import React, { useState } from "react";
-import { useDispatch,useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { signup } from "../../store/slices/authSlice";
 import { useNavigate } from 'react-router-dom';
 import Loading from "../../components/loading/Loading";
 
 export default function Signup() {
-  const [email, setEmail] = useState("")
-  const [password, setPassword] = useState("")
-  const [name, setName] = useState("")
-  const [phone, setPhone] = useState("")
-  const [address, setAddress] = useState("")
-  const [gender, setGender] = useState("")
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [address, setAddress] = useState("");
+  const [gender, setGender] = useState("");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+
   const loading = useSelector((state) => state.auth.loading);
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleSignup = async () => {
     setError("");
     setSuccess("");
-    let user = {
+    const user = {
       email,
       password,
       name,
       phone,
       address,
-      gender
-    }
+      gender,
+    };
     try {
       await dispatch(signup(user)).unwrap();
       setSuccess("Signup successful! Please login.");
@@ -37,19 +37,19 @@ export default function Signup() {
     } catch (err) {
       setError("Signup failed. Please check your details and try again.");
     }
-  }
+  };
 
   return (
-    <div className="signup-container">
-      <div className="signup-box">
-        <h1>Signup<button onClick={() => navigate('/login')} className="l-btn">
-          <h1>/Login</h1>
-        </button>
+    <div className="form-container">
+      <div className="form-box">
+        <h1>
+          Signup
+          <button onClick={() => navigate('/login')} className="switch-btn">Login</button>
         </h1>
         {error && <div className="error-message">{error}</div>}
         {success && <div className="success-message">{success}</div>}
         <input
-          type="text"
+          type="email"
           placeholder="Enter email"
           onChange={(e) => setEmail(e.target.value)}
           className="input-field"
@@ -100,9 +100,11 @@ export default function Signup() {
           </label>
         </div>
 
-        <button onClick={handleSignup} className="signup-button">Signup</button>
-        {loading && <Loading/>}
+        <button onClick={handleSignup} className="submit-button">
+          Signup
+        </button>
+        {loading && <Loading />}
       </div>
     </div>
-  )
+  );
 }

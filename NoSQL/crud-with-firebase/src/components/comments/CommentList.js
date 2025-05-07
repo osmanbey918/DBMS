@@ -5,6 +5,7 @@ export default function CommentList({ comments }) {
   if (!comments || comments.length === 0) {
     return <div className="empty-comments">No comments yet.</div>;
   }
+
   return (
     <div className="comment-list">
       {comments.map((comment) => (

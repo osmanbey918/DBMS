@@ -13,7 +13,6 @@ export default function Home() {
     <div className="header-container">
       <div className='userProcomp'>
         <UserProfile />
-        <button onClick={handleLogout} className='btn-log'>Logout</button>
       </div>
       <div className='feedcompo'>
         <Feed />

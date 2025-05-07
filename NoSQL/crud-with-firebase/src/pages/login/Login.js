@@ -23,19 +23,21 @@ export default function Login() {
     };
     try {
       await dispatch(login(user)).unwrap();
+      navigate('/'); // Redirect to a dashboard or home page after successful login
     } catch (err) {
       setError("Login failed. Please check your credentials and try again.");
     }
   };
 
   return (
-    <div className="login-container">
-      <div className="login-box">
-        <h1>Login<button onClick={() => navigate('/signup')} className="l-btn">
-          <h1>/SignUp</h1>
-        </button>
+    <div className="form-container">
+      <div className="form-box">
+        <h1>
+          Login
+          <button onClick={() => navigate('/signup')} className="switch-btn">Signup</button>
         </h1>
         {error && <div className="error-message">{error}</div>}
+        
         <input
           type="email"
           placeholder="Enter email"
@@ -48,8 +50,9 @@ export default function Login() {
           onChange={(e) => setPassword(e.target.value)}
           className="input-field"
         />
-        <button onClick={handleLogin} className="login-button">
-          login
+        
+        <button onClick={handleLogin} className="submit-button">
+          Login
         </button>
         {loading && <Loading />}
       </div>

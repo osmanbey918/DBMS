@@ -1,16 +1,13 @@
-// src/components/FeedList.js
+
 import React from "react";
 import FeedItem from "./FeedItem";
 
-const FeedList = ({ feeds },{users}) => {
+const FeedList = ({ feeds }) => {
     return (
         <div>
             {feeds.map((feed) => (
                 <FeedItem key={feed.id} feed={feed} />
             ))};
-             {/* {users.map((user) => (
-                <FeedItem key2={user.id} user={user} />
-            ))} */}
         </div>
     );
 };

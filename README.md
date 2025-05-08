@@ -6,6 +6,11 @@ A modern social media feed application built with React and Firebase, allowing u
 
 This application provides a platform for users to connect and share content in a social media-like environment. It features a clean, responsive interface with real-time updates powered by Firebase. Users can create accounts, create posts with text and images, comment on posts, and manage their content.
 
+
+## Live
+
+- Demo https://osmanbey918.github.io/feedsApp-with-firebase
+
 ## Main Features
 
 - **User Authentication**

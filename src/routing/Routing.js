@@ -8,8 +8,6 @@ import Signup from "../pages/signup/SignUp";
 import Login from "../pages/login/Login";
 import PublicRoute from "./PublicRoute";
 
-
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -23,8 +21,9 @@ const router = createBrowserRouter([
     path: "/login",
     element: <PublicRoute><Login /></PublicRoute>
   },
-
-]);
+], {
+  basename: "/feedsApp-with-firebase"
+});
 
 export default function Routing(params) {
   return (

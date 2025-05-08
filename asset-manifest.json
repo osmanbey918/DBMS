@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/osmanbey918/feedsApp-with-firebase/static/css/main.c1d56d33.css",
+    "main.js": "/osmanbey918/feedsApp-with-firebase/static/js/main.d79153c2.js",
+    "static/js/453.8ee9ef8c.chunk.js": "/osmanbey918/feedsApp-with-firebase/static/js/453.8ee9ef8c.chunk.js",
+    "index.html": "/osmanbey918/feedsApp-with-firebase/index.html",
+    "main.c1d56d33.css.map": "/osmanbey918/feedsApp-with-firebase/static/css/main.c1d56d33.css.map",
+    "main.d79153c2.js.map": "/osmanbey918/feedsApp-with-firebase/static/js/main.d79153c2.js.map",
+    "453.8ee9ef8c.chunk.js.map": "/osmanbey918/feedsApp-with-firebase/static/js/453.8ee9ef8c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.c1d56d33.css",
+    "static/js/main.d79153c2.js"
+  ]
+}

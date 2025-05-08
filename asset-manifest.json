@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/feedsApp-with-firebase/static/css/main.c1d56d33.css",
-    "main.js": "/feedsApp-with-firebase/static/js/main.afcfa6de.js",
+    "main.js": "/feedsApp-with-firebase/static/js/main.9e626fa7.js",
     "static/js/453.8ee9ef8c.chunk.js": "/feedsApp-with-firebase/static/js/453.8ee9ef8c.chunk.js",
     "index.html": "/feedsApp-with-firebase/index.html",
     "main.c1d56d33.css.map": "/feedsApp-with-firebase/static/css/main.c1d56d33.css.map",
-    "main.afcfa6de.js.map": "/feedsApp-with-firebase/static/js/main.afcfa6de.js.map",
+    "main.9e626fa7.js.map": "/feedsApp-with-firebase/static/js/main.9e626fa7.js.map",
     "453.8ee9ef8c.chunk.js.map": "/feedsApp-with-firebase/static/js/453.8ee9ef8c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c1d56d33.css",
-    "static/js/main.afcfa6de.js"
+    "static/js/main.9e626fa7.js"
   ]
 }
